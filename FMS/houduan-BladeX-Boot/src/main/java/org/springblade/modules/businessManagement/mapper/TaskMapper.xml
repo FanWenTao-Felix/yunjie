@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.springblade.modules.businessManagement.mapper.TaskMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="taskResultMap" type="org.springblade.modules.businessManagement.entity.Task">
+        <id column="id" property="id"/>
+        <result column="task_name" property="taskName"/>
+        <result column="internal_order_no" property="internalOrderNo"/>
+        <result column="location" property="location"/>
+        <result column="provider_id" property="providerId"/>
+        <result column="begin_time" property="beginTime"/>
+        <result column="finish_time" property="finishTime"/>
+        <result column="requirement" property="requirement"/>
+        <result column="feedback" property="feedback"/>
+        <result column="is_archive" property="isArchive"/>
+    </resultMap>
+
+
+    <select id="selectTaskPage" resultMap="taskResultMap">
+        select * from fms_task where is_deleted = 0
+    </select>
+
+</mapper>

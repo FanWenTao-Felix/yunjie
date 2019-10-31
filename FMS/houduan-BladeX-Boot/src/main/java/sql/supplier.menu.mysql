@@ -1,0 +1,10 @@
+INSERT INTO `blade_menu`(`id`, `parent_id`, `code`, `name`, `alias`, `path`, `source`, `sort`, `category`, `action`, `is_open`, `remark`, `is_deleted`)
+VALUES ('1166538736742293510', 0, 'supplier', '', 'menu', '/client/supplier', NULL, 1, 1, 0, 1, NULL, 0);
+INSERT INTO `blade_menu`(`id`, `parent_id`, `code`, `name`, `alias`, `path`, `source`, `sort`, `category`, `action`, `is_open`, `remark`, `is_deleted`)
+VALUES ('1166538736742293511', '1166538736742293510', 'supplier_add', '新增', 'add', '/client/supplier/add', 'plus', 1, 2, 1, 1, NULL, 0);
+INSERT INTO `blade_menu`(`id`, `parent_id`, `code`, `name`, `alias`, `path`, `source`, `sort`, `category`, `action`, `is_open`, `remark`, `is_deleted`)
+VALUES ('1166538736742293512', '1166538736742293510', 'supplier_edit', '修改', 'edit', '/client/supplier/edit', 'form', 2, 2, 2, 2, NULL, 0);
+INSERT INTO `blade_menu`(`id`, `parent_id`, `code`, `name`, `alias`, `path`, `source`, `sort`, `category`, `action`, `is_open`, `remark`, `is_deleted`)
+VALUES ('1166538736742293513', '1166538736742293510', 'supplier_delete', '删除', 'delete', '/api/client/supplier/remove', 'delete', 3, 2, 3, 3, NULL, 0);
+INSERT INTO `blade_menu`(`id`, `parent_id`, `code`, `name`, `alias`, `path`, `source`, `sort`, `category`, `action`, `is_open`, `remark`, `is_deleted`)
+VALUES ('1166538736742293514', '1166538736742293510', 'supplier_view', '查看', 'view', '/client/supplier/view', 'file-text', 4, 2, 2, 2, NULL, 0);

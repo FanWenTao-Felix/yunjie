@@ -1,0 +1,10 @@
+INSERT INTO `blade_menu`(`id`, `parent_id`, `code`, `name`, `alias`, `path`, `source`, `sort`, `category`, `action`, `is_open`, `remark`, `is_deleted`)
+VALUES ('1168705958428278785', 0, 'worknumrules', '', 'menu', '/dictionaries/worknumrules', NULL, 1, 1, 0, 1, NULL, 0);
+INSERT INTO `blade_menu`(`id`, `parent_id`, `code`, `name`, `alias`, `path`, `source`, `sort`, `category`, `action`, `is_open`, `remark`, `is_deleted`)
+VALUES ('1168705958428278786', '1168705958428278785', 'worknumrules_add', '新增', 'add', '/dictionaries/worknumrules/add', 'plus', 1, 2, 1, 1, NULL, 0);
+INSERT INTO `blade_menu`(`id`, `parent_id`, `code`, `name`, `alias`, `path`, `source`, `sort`, `category`, `action`, `is_open`, `remark`, `is_deleted`)
+VALUES ('1168705958428278787', '1168705958428278785', 'worknumrules_edit', '修改', 'edit', '/dictionaries/worknumrules/edit', 'form', 2, 2, 2, 2, NULL, 0);
+INSERT INTO `blade_menu`(`id`, `parent_id`, `code`, `name`, `alias`, `path`, `source`, `sort`, `category`, `action`, `is_open`, `remark`, `is_deleted`)
+VALUES ('1168705958428278788', '1168705958428278785', 'worknumrules_delete', '删除', 'delete', '/api/dictionaries/worknumrules/remove', 'delete', 3, 2, 3, 3, NULL, 0);
+INSERT INTO `blade_menu`(`id`, `parent_id`, `code`, `name`, `alias`, `path`, `source`, `sort`, `category`, `action`, `is_open`, `remark`, `is_deleted`)
+VALUES ('1168705958428278789', '1168705958428278785', 'worknumrules_view', '查看', 'view', '/dictionaries/worknumrules/view', 'file-text', 4, 2, 2, 2, NULL, 0);

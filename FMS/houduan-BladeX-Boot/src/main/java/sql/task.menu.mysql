@@ -1,0 +1,10 @@
+INSERT INTO `blade_menu`(`id`, `parent_id`, `code`, `name`, `alias`, `path`, `source`, `sort`, `category`, `action`, `is_open`, `remark`, `is_deleted`)
+VALUES ('1187663118038319110', 0, 'task', '', 'menu', '/business/task', NULL, 1, 1, 0, 1, NULL, 0);
+INSERT INTO `blade_menu`(`id`, `parent_id`, `code`, `name`, `alias`, `path`, `source`, `sort`, `category`, `action`, `is_open`, `remark`, `is_deleted`)
+VALUES ('1187663118038319111', '1187663118038319110', 'task_add', '新增', 'add', '/business/task/add', 'plus', 1, 2, 1, 1, NULL, 0);
+INSERT INTO `blade_menu`(`id`, `parent_id`, `code`, `name`, `alias`, `path`, `source`, `sort`, `category`, `action`, `is_open`, `remark`, `is_deleted`)
+VALUES ('1187663118038319112', '1187663118038319110', 'task_edit', '修改', 'edit', '/business/task/edit', 'form', 2, 2, 2, 2, NULL, 0);
+INSERT INTO `blade_menu`(`id`, `parent_id`, `code`, `name`, `alias`, `path`, `source`, `sort`, `category`, `action`, `is_open`, `remark`, `is_deleted`)
+VALUES ('1187663118038319113', '1187663118038319110', 'task_delete', '删除', 'delete', '/api/business/task/remove', 'delete', 3, 2, 3, 3, NULL, 0);
+INSERT INTO `blade_menu`(`id`, `parent_id`, `code`, `name`, `alias`, `path`, `source`, `sort`, `category`, `action`, `is_open`, `remark`, `is_deleted`)
+VALUES ('1187663118038319114', '1187663118038319110', 'task_view', '查看', 'view', '/business/task/view', 'file-text', 4, 2, 2, 2, NULL, 0);

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.springblade.modules.dictionaries.mapper.CosttypeMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="costtypeResultMap" type="org.springblade.modules.dictionaries.entity.Costtype">
+        <id column="id" property="id"/>
+        <result column="cost_name" property="costName"/>
+        <result column="cost_type" property="costType"/>
+        <result column="cost_allname" property="costAllname"/>
+        <result column="cost_enname" property="costEnname"/>
+        <result column="cost_default" property="costDefault"/>
+        <result column="cost_code" property="costCode"/>
+        <result column="status" property="status"/>
+        <result column="cost_bz" property="costBz"/>
+    </resultMap>
+
+
+    <select id="selectCosttypePage" resultMap="costtypeResultMap">
+        select * from fms_costtype where is_deleted = 0
+    </select>
+
+</mapper>

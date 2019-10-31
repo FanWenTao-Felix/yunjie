@@ -1,0 +1,10 @@
+INSERT INTO `blade_menu`(`id`, `parent_id`, `code`, `name`, `alias`, `path`, `source`, `sort`, `category`, `action`, `is_open`, `remark`, `is_deleted`)
+VALUES ('1171302215185391622', 0, 'airbusiness', '', 'menu', '/business/airbusiness', NULL, 1, 1, 0, 1, NULL, 0);
+INSERT INTO `blade_menu`(`id`, `parent_id`, `code`, `name`, `alias`, `path`, `source`, `sort`, `category`, `action`, `is_open`, `remark`, `is_deleted`)
+VALUES ('1171302215185391623', '1171302215185391622', 'airbusiness_add', '新增', 'add', '/business/airbusiness/add', 'plus', 1, 2, 1, 1, NULL, 0);
+INSERT INTO `blade_menu`(`id`, `parent_id`, `code`, `name`, `alias`, `path`, `source`, `sort`, `category`, `action`, `is_open`, `remark`, `is_deleted`)
+VALUES ('1171302215185391624', '1171302215185391622', 'airbusiness_edit', '修改', 'edit', '/business/airbusiness/edit', 'form', 2, 2, 2, 2, NULL, 0);
+INSERT INTO `blade_menu`(`id`, `parent_id`, `code`, `name`, `alias`, `path`, `source`, `sort`, `category`, `action`, `is_open`, `remark`, `is_deleted`)
+VALUES ('1171302215185391625', '1171302215185391622', 'airbusiness_delete', '删除', 'delete', '/api/business/airbusiness/remove', 'delete', 3, 2, 3, 3, NULL, 0);
+INSERT INTO `blade_menu`(`id`, `parent_id`, `code`, `name`, `alias`, `path`, `source`, `sort`, `category`, `action`, `is_open`, `remark`, `is_deleted`)
+VALUES ('1171302215185391626', '1171302215185391622', 'airbusiness_view', '查看', 'view', '/business/airbusiness/view', 'file-text', 4, 2, 2, 2, NULL, 0);

@@ -1,0 +1,10 @@
+INSERT INTO `blade_menu`(`id`, `parent_id`, `code`, `name`, `alias`, `path`, `source`, `sort`, `category`, `action`, `is_open`, `remark`, `is_deleted`)
+VALUES ('1184371187761811462', 0, 'billdetail', '', 'menu', '/reconciliationstatement/billdetail', NULL, 1, 1, 0, 1, NULL, 0);
+INSERT INTO `blade_menu`(`id`, `parent_id`, `code`, `name`, `alias`, `path`, `source`, `sort`, `category`, `action`, `is_open`, `remark`, `is_deleted`)
+VALUES ('1184371187761811463', '1184371187761811462', 'billdetail_add', '新增', 'add', '/reconciliationstatement/billdetail/add', 'plus', 1, 2, 1, 1, NULL, 0);
+INSERT INTO `blade_menu`(`id`, `parent_id`, `code`, `name`, `alias`, `path`, `source`, `sort`, `category`, `action`, `is_open`, `remark`, `is_deleted`)
+VALUES ('1184371187761811464', '1184371187761811462', 'billdetail_edit', '修改', 'edit', '/reconciliationstatement/billdetail/edit', 'form', 2, 2, 2, 2, NULL, 0);
+INSERT INTO `blade_menu`(`id`, `parent_id`, `code`, `name`, `alias`, `path`, `source`, `sort`, `category`, `action`, `is_open`, `remark`, `is_deleted`)
+VALUES ('1184371187761811465', '1184371187761811462', 'billdetail_delete', '删除', 'delete', '/api/reconciliationstatement/billdetail/remove', 'delete', 3, 2, 3, 3, NULL, 0);
+INSERT INTO `blade_menu`(`id`, `parent_id`, `code`, `name`, `alias`, `path`, `source`, `sort`, `category`, `action`, `is_open`, `remark`, `is_deleted`)
+VALUES ('1184371187761811466', '1184371187761811462', 'billdetail_view', '查看', 'view', '/reconciliationstatement/billdetail/view', 'file-text', 4, 2, 2, 2, NULL, 0);

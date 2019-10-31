@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.springblade.modules.ocean.mapper.AdditionFeeMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="additionFeeResultMap" type="org.springblade.modules.ocean.entity.AdditionFee">
+        <result column="id" property="id"/>
+        <result column="create_user" property="createUser"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_user" property="updateUser"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="is_deleted" property="isDeleted"/>
+        <result column="status" property="status"/>
+        <result column="create_dept" property="createDept"/>
+        <result column="business_id" property="businessId"/>
+        <result column="internal_order_no" property="internalOrderNo"/>
+        <result column="fee_name" property="feeName"/>
+        <result column="units" property="units"/>
+        <result column="cabinet_type" property="cabinetType"/>
+        <result column="twenty" property="twenty"/>
+        <result column="forty" property="forty"/>
+        <result column="forty_h" property="fortyH"/>
+        <result column="forty_five" property="fortyFive"/>
+        <result column="single_price" property="singlePrice"/>
+        <result column="currency" property="currency"/>
+        <result column="remarks" property="remarks"/>
+        <result column="type" property="type"/>
+        <result column="settlement_unit" property="settlementUnit"/>
+
+    </resultMap>
+
+
+    <select id="selectAdditionFeePage" resultMap="additionFeeResultMap">
+        select * from fms_addition_fee where is_deleted = 0
+    </select>
+
+</mapper>

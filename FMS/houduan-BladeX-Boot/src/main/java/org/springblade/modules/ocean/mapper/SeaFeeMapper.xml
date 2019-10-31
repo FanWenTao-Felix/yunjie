@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.springblade.modules.ocean.mapper.SeaFeeMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="seaFeeResultMap" type="org.springblade.modules.ocean.entity.SeaFee">
+        <id column="id" property="id"/>
+        <result column="create_user" property="createUser"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_user" property="updateUser"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="is_deleted" property="isDeleted"/>
+        <result column="status" property="status"/>
+        <result column="create_dept" property="createDept"/>
+        <result column="internal_order_no" property="internalOrderNo"/>
+        <result column="short_name" property="shortName"/>
+        <result column="code" property="code"/>
+        <result column="english_name" property="englishName"/>
+        <result column="chinese_name" property="chineseName"/>
+        <result column="settlement_unit" property="settlementUnit"/>
+        <result column="currency" property="currency"/>
+        <result column="amount" property="amount"/>
+        <result column="charge_unit" property="chargeUnit"/>
+        <result column="unit_price" property="unitPrice"/>
+        <result column="type" property="type"/>
+        <result column="quantity" property="quantity"/>
+        <result column="fee_status" property="feeStatus"/>
+    </resultMap>
+
+
+    <select id="selectSeaFeePage" resultMap="seaFeeResultMap">
+        select * from fms_sea_fee where is_deleted = 0
+    </select>
+
+</mapper>

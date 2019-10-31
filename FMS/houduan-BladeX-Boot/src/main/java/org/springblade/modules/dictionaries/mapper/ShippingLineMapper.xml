@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.springblade.modules.dictionaries.mapper.ShippingLineMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="shippingLineResultMap" type="org.springblade.modules.dictionaries.entity.ShippingLine">
+        <id column="id" property="id"/>
+        <result column="company_code" property="companyCode"/>
+        <result column="company_chinese" property="companyChinese"/>
+        <result column="currency" property="currency"/>
+        <result column="origin_port" property="originPort"/>
+        <result column="sundry_goods" property="sundryGoods"/>
+        <result column="remark" property="remark"/>
+        <result column="advantage " property="advantage"/>
+        <result column="state" property="state"/>
+        <result column="creation_time" property="creationTime"/>
+        <result column="turnover_time" property="turnoverTime"/>
+    </resultMap>
+
+
+    <select id="selectShippingLinePage" resultMap="shippingLineResultMap">
+        select * from fms_shipping_line where is_deleted = 0
+    </select>
+    <select id="selectShippingLine" resultType="org.springblade.modules.dictionaries.entity.ShippingLine">
+          select * from fms_shipping_line where company_code=#{companyCode}  and company_chinese=#{companyChinese}
+           and origin_port=#{originPort}
+     </select>
+
+</mapper>

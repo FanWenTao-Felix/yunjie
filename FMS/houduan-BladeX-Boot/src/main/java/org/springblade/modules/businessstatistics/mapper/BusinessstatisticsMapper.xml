@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.springblade.modules.businessstatistics.mapper.BusinessstatisticsMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="salesmanagementResultMap" type="org.springblade.modules.businessstatistics.entity.Businessstatistics">
+        <id column="id" property="id"/>
+        <result column="create_user" property="createUser"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_user" property="updateUser"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="is_deleted" property="isDeleted"/>
+        <result column="status" property="status"/>
+        <result column="create_dept" property="createDept"/>
+        <result column="internal_order_no" property="internalOrderNo"/>
+        <result column="main_order_no" property="mainOrderNo"/>
+        <result column="sub_order_no" property="subOrderNo"/>
+        <result column="is_main" property="isMain"/>
+        <result column="loading_port" property="loadingPort"/>
+        <result column="destination_port" property="destinationPort"/>
+        <result column="operation_status" property="operationStatus"/>
+        <result column="client" property="client"/>
+        <result column="consigner_id" property="consignerId"/>
+        <result column="consignee_id" property="consigneeId"/>
+        <result column="consigner" property="consigner"/>
+        <result column="consigner_address" property="consignerAddress"/>
+        <result column="consignee" property="consignee"/>
+        <result column="consignee_address" property="consigneeAddress"/>
+        <result column="notifier" property="notifier"/>
+        <result column="goods_chinese_name" property="goodsChineseName"/>
+        <result column="goods_english_name" property="goodsEnglishName"/>
+        <result column="goods_description" property="goodsDescription"/>
+        <result column="goods_amount" property="goodsAmount"/>
+        <result column="goods_package" property="goodsPackage"/>
+        <result column="goods_gross_weight" property="goodsGrossWeight"/>
+        <result column="goods_volumn" property="goodsVolumn"/>
+        <result column="goods_chargeable_weight" property="goodsChargeableWeight"/>
+        <result column="cargo_rate" property="cargoRate"/>
+        <result column="in_weight" property="inWeight"/>
+        <result column="in_chargeable_weight" property="inChargeableWeight"/>
+        <result column="in_amount" property="inAmount"/>
+        <result column="in_volumn" property="inVolumn"/>
+        <result column="customs_declaration_weight" property="customsDeclarationWeight"/>
+        <result column="customs_declaration_amount" property="customsDeclarationAmount"/>
+        <result column="cargo_terminal_weight" property="cargoTerminalWeight"/>
+        <result column="cargo_terminal_volumn" property="cargoTerminalVolumn"/>
+        <result column="carrier_id" property="carrierId"/>
+        <result column="business_type" property="businessType"/>
+        <result column="booking_status" property="bookingStatus"/>
+        <result column="booking_date" property="bookingDate"/>
+        <result column="air_line" property="airLine"/>
+        <result column="flight" property="flight"/>
+        <result column="closing_time" property="closingTime"/>
+        <result column="cargo_terminal_time" property="cargoTerminalTime"/>
+        <result column="fb_destination_port" property="fbDestinationPort"/>
+        <result column="fb_launch_time" property="fbLaunchTime"/>
+        <result column="fb_arrival_time" property="fbArrivalTime"/>
+        <result column="fb_status" property="fbStatus"/>
+        <result column="sb_destination_port" property="sbDestinationPort"/>
+        <result column="sb_launch_time" property="sbLaunchTime"/>
+        <result column="sb_arrival_time" property="sbArrivalTime"/>
+        <result column="sb_status" property="sbStatus"/>
+        <result column="warehousing_fee" property="warehousingFee"/>
+        <result column="warehousing_fee_currency" property="warehousingFeeCurrency"/>
+        <result column="packing_fee" property="packingFee"/>
+        <result column="packing_fee_currency" property="packingFeeCurrency"/>
+        <result column="flight_fee" property="flightFee"/>
+        <result column="flight_fee_currency" property="flightFeeCurrency"/>
+        <result column="salesman" property="salesman"/>
+        <result column="transport_type" property="transportType"/>
+        <result column="operator" property="operator"/>
+        <result column="transport_clause" property="transportClause"/>
+        <result column="bz" property="bz"/>
+        <result column="booking_type" property="bookingType"/>
+        <result column="bill_way" property="billWay"/>
+        <result column="is_minute" property="isMinute"/>
+        <result column="creation_time" property="creationTime"/>
+        <result column="consignor" property="consignor"/>
+        <result column="name_shipper" property="nameShipper"/>
+        <result column="shipper_address" property="shipperAddress"/>
+        <result column="consignee_shipper" property="consigneeShipper"/>
+        <result column="port_loading" property="portLoading"/>
+        <result column="destination" property="destination"/>
+        <result column="transshipment" property="transshipment"/>
+        <result column="shipowner" property="shipowner"/>
+        <result column="cargo_name" property="cargoName"/>
+        <result column="cargo_chinese" property="cargoChinese"/>
+        <result column="sail_schedule" property="sailSchedule"/>
+        <result column="description" property="description"/>
+        <result column="cargo_remark" property="cargoRemark"/>
+        <result column="number_units" property="numberUnits"/>
+        <result column="rough_weight" property="roughWeight"/>
+        <result column="volume" property="volume"/>
+        <result column="value" property="value"/>
+        <result column="sales_price" property="salesPrice"/>
+        <result column="shipping_mark" property="shippingMark"/>
+        <result column="cabinet_type" property="cabinetType"/>
+        <result column="quantity" property="quantity"/>
+        <result column="customs_broker" property="customsBroker"/>
+        <result column="trailer_company" property="trailerCompany"/>
+        <result column="business_state" property="businessState"/>
+        <result column="tran_type" property="tranType"/>
+        <result column="ordertype" property="ordertype"/>
+    </resultMap>
+
+    <select id="selectSalesmanagementPage" resultMap="salesmanagementResultMap">
+        select * from fms_salesmanagement where id in (select max(id) from fms_salesmanagement group by client)
+    </select>
+
+    <!--<select id="selectbyclient" resultMap="salesmanagementResultMap">
+        select * from fms_air_business where id in (select max(id) from fms_air_business group by client)
+    </select>-->
+
+</mapper>

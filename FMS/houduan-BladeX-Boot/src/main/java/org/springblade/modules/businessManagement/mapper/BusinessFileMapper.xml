@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.springblade.modules.businessManagement.mapper.BusinessFileMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="businessFileResultMap" type="org.springblade.modules.businessManagement.entity.BusinessFile">
+        <id column="id" property="id"/>
+        <result column="create_user" property="createUser"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_user" property="updateUser"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="is_deleted" property="isDeleted"/>
+        <result column="status" property="status"/>
+        <result column="create_dept" property="createDept"/>
+        <result column="internal_order_no" property="internalOrderNo"/>
+        <result column="name" property="name"/>
+        <result column="path" property="path"/>
+        <result column="type" property="type"/>
+        <result column="description" property="description"/>
+    </resultMap>
+
+
+    <select id="selectBusinessFilePage" resultMap="businessFileResultMap">
+        select * from fms_business_file where is_deleted = 0
+    </select>
+
+</mapper>

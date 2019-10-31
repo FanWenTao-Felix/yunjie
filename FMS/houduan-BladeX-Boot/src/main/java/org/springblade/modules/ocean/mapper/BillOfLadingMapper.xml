@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.springblade.modules.ocean.mapper.BillOfLadingMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="billOfLadingResultMap" type="org.springblade.modules.ocean.entity.BillOfLading">
+        <result column="id" property="id"/>
+      <!--  <result column="create_user" property="createUser"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_user" property="updateUser"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="is_deleted" property="isDeleted"/>
+        <result column="status" property="status"/>
+        <result column="create_dept" property="createDept"/>-->
+        <result column="internal_order_no" property="internalOrderNo"/>
+        <result column="cargo_name" property="cargoName"/>
+        <result column="description" property="description"/>
+        <result column="shipping_mark" property="shippingMark"/>
+        <result column="number_units" property="numberUnits"/>
+        <result column="rough_weight" property="roughWeight"/>
+        <result column="volume" property="volume"/>
+        <result column="shipper_address" property="shipperAddress"/>
+        <result column="name_shipper" property="nameShipper"/>
+        <result column="consignee" property="consignee"/>
+        <result column="consignee_shipper" property="consigneeShipper"/>
+        <result column="notifier" property="notifier"/>
+        <result column="supplier" property="supplier"/>
+        <result column="consignee_agent" property="consigneeAgent"/>
+        <result column="carton_quantity" property="cartonQuantity"/>
+        <result column="cargo_quantity" property="cargoQuantity"/>
+        <result column="original" property="original"/>
+        <result column="sign_site" property="signSite"/>
+        <result column="sign_time" property="signTime"/>
+        <result column="sign_name" property="signName"/>
+        <result column="follower" property="follower"/>
+        <result column="connect_way" property="connectWay"/>
+        <result column="freight_pay_way" property="freightPayWay"/>
+        <result column="release_cargo_way" property="releaseCargoWay"/>
+        <result column="goods_package" property="goodsPackage"/>
+    </resultMap>
+
+
+    <select id="selectBillOfLadingPage" resultMap="billOfLadingResultMap">
+        select * from fms_bill_of_lading where is_deleted = 0
+    </select>
+    <select id="getInternalOrderNo" resultType="org.springblade.modules.ocean.entity.BillOfLading">
+         select * from fms_bill_of_lading where internal_order_no=#{internalOrderNo}
+    </select>
+
+
+</mapper>

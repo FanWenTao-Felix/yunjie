@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.springblade.modules.businessManagement.mapper.FeeMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="feeResultMap" type="org.springblade.modules.businessManagement.entity.Fee">
+        <id column="id" property="id"/>
+        <result column="create_user" property="createUser"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_user" property="updateUser"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="is_deleted" property="isDeleted"/>
+        <result column="status" property="status"/>
+        <result column="create_dept" property="createDept"/>
+        <result column="internal_order_no" property="internalOrderNo"/>
+        <result column="short_name" property="shortName"/>
+        <result column="code" property="code"/>
+        <result column="english_name" property="englishName"/>
+        <result column="chinese_name" property="chineseName"/>
+        <result column="settlement_unit" property="settlementUnit"/>
+        <result column="currency" property="currency"/>
+        <result column="amount" property="amount"/>
+        <result column="charge_unit" property="chargeUnit"/>
+        <result column="unit_price" property="unitPrice"/>
+        <result column="type" property="type"/>
+        <result column="quantity" property="quantity"/>
+        <result column="fee_status" property="feeStatus"/>
+        <result column="is_locked" property="isLocked"/>
+        <result column="settled_amount" property="settledAmount"/>
+        <result column="bill_created_amount" property="billCreatedAmount"/>
+    </resultMap>
+
+    <resultMap id="receivablePayableResultMap"
+               type="org.springblade.modules.financialManagement.vo.ReceivablePayableVo">
+        <result column="internal_order_no" property="internalOrderNo"/>
+        <result column="client" property="client"/>
+        <result column="main_order_no" property="mainOrderNo"/>
+        <result column="create_time" property="createTime"/>
+        <result column="business_type" property="businessType"/>
+        <result column="operator" property="operator"/>
+        <result column="salesman" property="salesman"/>
+
+    </resultMap>
+
+
+    <select id="selectFeePage" resultMap="feeResultMap">
+        select * from fms_fee where is_deleted = 0
+    </select>
+
+
+    <select id="selectReceivablePayableList" resultMap="receivablePayableResultMap">
+        select * from (select operator,salesman, 0 as business_type ,create_time,main_order_no,client,internal_order_no
+        from fms_air_business where is_deleted = 0
+        union all
+        select operating as operator,salesman,1 as business_type ,b.create_time
+        as create_time, w.munual_folio as main_order_no,consignor as
+        client,w.internal_order_no as internal_order_no
+        from fms_sea_business b join fms_sea_whole w
+        on b.id=w.business_id where b.is_deleted = 0 and w.is_deleted=0
+        union all
+        select operating as operator,salesman,1 as business_type ,b.create_time
+        as create_time, w.munual_folio as main_order_no,consignor as
+        client,w.internal_order_no as internal_order_no
+        from fms_sea_business b join fms_sea_spell w
+        on b.id=w.business_id where b.is_deleted = 0 and w.is_deleted=0
+        ) a where 1=1
+        <if test="r.client != null">
+            and a.client like #{r.client}
+        </if>
+        <if test="r.salesman != null">
+            and a.salesman = #{r.salesman}
+        </if>
+        <if test="r.operator != null">
+            and a.operator = #{r.operator}
+        </if>
+        limit ${(q.current-1)*q.size},#{q.size};
+    </select>
+
+    <select id="selectReceivablePayableCount" resultType="java.lang.Long">
+        select count(1) from (select operator,salesman,client from fms_air_business where is_deleted = 0
+        union all
+        select operating as operator,salesman,consignor as client from fms_sea_business) a where 1=1
+        <if test="r.client != null">
+            and a.client = #{r.client}
+        </if>
+        <if test="r.salesman != null">
+            and a.salesman = #{r.salesman}
+        </if>
+        <if test="r.operator != null">
+            and a.operator = #{r.operator}
+        </if>
+    </select>
+
+    <select id="getFeeList" resultMap="feeResultMap">
+        select * from
+        (select client,internal_order_no from fms_air_business where is_deleted=0 union all select consignor as client,
+        internal_order_no from fms_sea_business where is_deleted=0) o
+        left join
+        (select is_locked, create_user, id, fee_status, settlement_unit, short_name,
+        internal_order_no,type,currency,amount from fms_fee where is_deleted = 0 union all select 0 as is_locked,
+        create_user,id, status as fee_status, settlement_unit,fee_name as
+        short_name,internal_order_no,type,currency,(units*single_price) as amount from fms_addition_fee where
+        is_deleted=0) f
+        on f.internal_order_no = o.internal_order_no
+        where f.internal_order_no is not null
+        <if test="f.client != null">
+            and o.client = #{f.client}
+        </if>
+        <if test="f.type != null">
+            and f.type = #{f.type}
+        </if>
+        <if test="f.feeStatus != null">
+            and f.fee_status = #{f.feeStatus}
+        </if>
+        <if test="f.internalOrderNo != null">
+            and f.internal_order_no = #{f.internalOrderNo}
+        </if>
+        limit ${(q.current-1)*q.size},#{q.size};
+    </select>
+
+    <select id="getFeeCount" resultType="java.lang.Long">
+        select count(1) from
+        (select client,internal_order_no from fms_air_business where is_deleted=0 union all select consignor as client,
+        internal_order_no from fms_sea_business where is_deleted=0) o
+        left join
+        (select id, fee_status, settlement_unit, short_name, internal_order_no,type,currency,amount from fms_fee where
+        is_deleted = 0 union all select id, status as fee_status, settlement_unit,fee_name as
+        short_name,internal_order_no,type,currency,(units*single_price) as amount from fms_addition_fee where
+        is_deleted=0) f
+        on f.internal_order_no = o.internal_order_no
+        where f.internal_order_no is not null
+        <if test="f.client != null">
+            and o.client = #{f.client}
+        </if>
+        <if test="f.type != null">
+            and f.type = #{f.type}
+        </if>
+        <if test="f.feeStatus != null">
+            and f.fee_status = #{f.feeStatus}
+        </if>
+        <if test="f.internalOrderNo != null">
+            and f.internal_order_no = #{f.internalOrderNo}
+        </if>
+    </select>
+    <select id="getInternalOrderNo" resultType="org.springblade.modules.businessManagement.entity.Fee">
+      select * from fms_fee where internal_order_no = #{internalOrderNo}
+    </select>
+
+
+    <select id="getUnSettledFee" resultMap="feeResultMap">
+       select * from fms_fee where settlement_unit= #{fee.settlementUnit} and amount > bill_created_amount  and amount > settled_amount and `type` = #{fee.type} and fee_status > 2
+    </select>
+
+</mapper>

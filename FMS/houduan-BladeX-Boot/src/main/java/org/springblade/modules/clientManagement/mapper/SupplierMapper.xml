@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.springblade.modules.clientManagement.mapper.SupplierMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="supplierResultMap" type="org.springblade.modules.clientManagement.entity.Supplier">
+        <id column="id" property="id"/>
+        <result column="create_user" property="createUser"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_user" property="updateUser"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="is_deleted" property="isDeleted"/>
+        <result column="short_name" property="shortName"/>
+        <result column="full_name" property="fullName"/>
+        <result column="english_name" property="englishName"/>
+        <result column="contact_number" property="contactNumber"/>
+        <result column="fax_number" property="faxNumber"/>
+        <result column="postal_code" property="postalCode"/>
+        <result column="phone" property="phone"/>
+        <result column="chinese_address" property="chineseAddress"/>
+        <result column="english_address" property="englishAddress"/>
+        <result column="web_address" property="webAddress"/>
+        <result column="e_mail" property="eMail"/>
+        <result column="country" property="country"/>
+        <result column="district" property="district"/>
+        <result column="city" property="city"/>
+        <result column="credit_level" property="creditLevel"/>
+        <result column="unit_code" property="unitCode"/>
+        <result column="examine_status" property="examineStatus"/>
+        <result column="business_type" property="businessType"/>
+        <result column="client_source" property="clientSource"/>
+        <result column="client_group" property="clientGroup"/>
+        <result column="client_type" property="clientType"/>
+        <result column="status" property="status"/>
+        <result column="create_dept" property="createDept"/>
+        <result column="receivable_client" property="receivableClient"/>
+        <result column="payable_client" property="payableClient"/>
+        <result column="data_sharing" property="dataSharing"/>
+        <result column="focus_client" property="focusClient"/>
+        <result column="worthless_client" property="worthlessClient"/>
+        <result column="direct_cnee" property="directCnee"/>
+        <result column="foreign_branch" property="foreignBranch"/>
+        <result column="company_type" property="companyType"/>
+        <result column="remark" property="remark"/>
+        <result column="financial_accounting_code" property="financialAccountingCode"/>
+        <result column="limited_arrears_amount" property="limitedArrearsAmount"/>
+        <result column="limited_arrears_currency" property="limitedArrearsCurrency"/>
+        <result column="paytime_day" property="paytimeDay"/>
+        <result column="paytime_span" property="paytimeSpan"/>
+        <result column="paytime_type" property="paytimeType"/>
+        <result column="including_tax" property="includingTax"/>
+        <result column="tax_rate" property="taxRate"/>
+        <result column="business_range" property="businessRange"/>
+    </resultMap>
+
+
+    <select id="selectSupplierPage" resultMap="supplierResultMap">
+        select * from fms_supplier where is_deleted = 0
+    </select>
+
+</mapper>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.springblade.modules.dictionaries.mapper.ParitiesMapper">
+
+    <!-- 通用查询映射结果1 -->
+    <resultMap id="paritiesResultMap" type="org.springblade.modules.dictionaries.entity.Parities">
+        <id column="id" property="id"/>
+        <result column="original_currency" property="originalCurrency"/>
+        <result column="night_money" property="nightMoney"/>
+        <result column="cardinal_number" property="cardinalNumber"/>
+        <result column="parities" property="parities"/>
+        <result column="valid_start" property="validStart"/>
+        <result column="effective_end" property="effectiveEnd"/>
+    </resultMap>
+
+
+    <select id="selectParitiesPage" resultMap="paritiesResultMap">
+        select * from fms_parities where is_deleted = 0
+    </select>
+
+</mapper>

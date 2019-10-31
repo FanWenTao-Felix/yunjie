@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.springblade.modules.dictionaries.mapper.PacktypeMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="packtypeResultMap" type="org.springblade.modules.dictionaries.entity.Packtype">
+        <id column="id" property="id"/>
+        <result column="pack_referred" property="packReferred"/>
+        <result column="pack_cnname" property="packCnname"/>
+        <result column="pack_enname" property="packEnname"/>
+        <result column="pack_edi" property="packEdi"/>
+        <result column="pack_bz" property="packBz"/>
+    </resultMap>
+
+
+    <select id="selectPacktypePage" resultMap="packtypeResultMap">
+        select * from fms_packtype where is_deleted = 0
+    </select>
+
+</mapper>

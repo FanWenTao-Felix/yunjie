@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.springblade.modules.businessManagement.mapper.AirBusinessMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="airBusinessResultMap" type="org.springblade.modules.businessManagement.entity.AirBusiness">
+        <id column="id" property="id"/>
+        <result column="create_user" property="createUser"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_user" property="updateUser"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="is_deleted" property="isDeleted"/>
+        <result column="status" property="status"/>
+        <result column="create_dept" property="createDept"/>
+        <result column="internal_order_no" property="internalOrderNo"/>
+        <result column="main_order_no" property="mainOrderNo"/>
+        <result column="sub_order_no" property="subOrderNo"/>
+        <result column="is_main" property="isMain"/>
+        <result column="loading_port" property="loadingPort"/>
+        <result column="destination_port" property="destinationPort"/>
+        <result column="business_status" property="businessStatus"/>
+        <result column="client" property="client"/>
+        <result column="consigner_phone" property="consignerPhone"/>
+        <result column="consignee_phone" property="consigneePhone"/>
+        <result column="consigner" property="consigner"/>
+        <result column="consigner_address" property="consignerAddress"/>
+        <result column="consignee" property="consignee"/>
+        <result column="consignee_address" property="consigneeAddress"/>
+        <result column="notifier" property="notifier"/>
+        <result column="notifier_phone" property="notifierPhone"/>
+        <result column="notifier_address" property="notifierAddress"/>
+        <result column="goods_chinese_name" property="goodsChineseName"/>
+        <result column="goods_english_name" property="goodsEnglishName"/>
+        <result column="goods_description" property="goodsDescription"/>
+        <result column="goods_amount" property="goodsAmount"/>
+        <result column="goods_package" property="goodsPackage"/>
+        <result column="goods_gross_weight" property="goodsGrossWeight"/>
+        <result column="goods_volumn" property="goodsVolumn"/>
+        <result column="goods_length" property="goodsLength"/>
+        <result column="goods_width" property="goodsWidth"/>
+        <result column="goods_height" property="goodsHeight"/>
+        <result column="goods_chargeable_weight" property="goodsChargeableWeight"/>
+        <result column="charge_price" property="chargePrice"/>
+        <result column="charge_currency" property="chargeCurrency"/>
+        <result column="cargo_rate" property="cargoRate"/>
+        <result column="mark" property="mark"/>
+        <result column="loading_port_full_name" property="loadingPortFullName"/>
+        <result column="destination_port_full_name" property="destinationPortFullName"/>
+        <result column="in_weight" property="inWeight"/>
+        <result column="in_chargeable_weight" property="inChargeableWeight"/>
+        <result column="in_amount" property="inAmount"/>
+        <result column="in_volumn" property="inVolumn"/>
+        <result column="customs_declaration_weight" property="customsDeclarationWeight"/>
+        <result column="customs_declaration_amount" property="customsDeclarationAmount"/>
+        <result column="cargo_terminal_weight" property="cargoTerminalWeight"/>
+        <result column="cargo_terminal_volumn" property="cargoTerminalVolumn"/>
+        <result column="declared_value_for_carriage" property="declaredValueForCarriage"/>
+        <result column="declared_value_for_customs" property="declaredValueForCustoms"/>
+        <result column="amount_of_insurance" property="amountOfInsurance"/>
+        <result column="carrier_id" property="carrierId"/>
+        <result column="business_type" property="businessType"/>
+        <result column="air_fee_pay_type" property="airFeePayType"/>
+        <result column="lading_bill_fee_currency" property="ladingBillFeeCurrency"/>
+        <result column="other_fee_list" property="otherFeeList"/>
+        <result column="other_fee_pay_type" property="otherFeePayType"/>
+        <result column="airline_company_agent_id" property="airlineCompanyAgentId"/>
+        <result column="booking_agent_id" property="bookingAgentId"/>
+        <result column="booking_status" property="bookingStatus"/>
+        <result column="booking_date" property="bookingDate"/>
+        <result column="air_line" property="airLine"/>
+        <result column="flight" property="flight"/>
+        <result column="publish_fare" property="publishFare"/>
+        <!--
+        <result column="handling_information" property="handlingInformation"/>
+        <result column="closing_time" property="closingTime"/>
+        <result column="cargo_terminal_time" property="cargoTerminalTime"/>
+        -->
+        <result column="fb_destination_port" property="fbDestinationPort"/>
+        <result column="fb_launch_time" property="fbLaunchTime"/>
+        <result column="fb_arrival_time" property="fbArrivalTime"/>
+        <result column="fb_status" property="fbStatus"/>
+        <result column="sb_destination_port" property="sbDestinationPort"/>
+        <result column="sb_launch_time" property="sbLaunchTime"/>
+        <result column="sb_arrival_time" property="sbArrivalTime"/>
+        <result column="sb_status" property="sbStatus"/>
+        <result column="operator" property="operator"/>
+        <result column="salesman" property="salesman"/>
+        <result column="warehousing_agent_id" property="warehousingAgentId"/>
+        <result column="voyage" property="voyage"/>
+        <result column="measurement" property="measurement"/>
+        <result column="is_verified_fee" property="isVerifiedFee"/>
+        <result column="flight_time" property="flightTime"/>
+        <result column="documentary_off_date" property="documentaryOffDate"/>
+        <result column="size_list" property="sizeList" />
+    </resultMap>
+
+
+    <select id="selectAirBusinessPage" resultMap="airBusinessResultMap">
+        select * from fms_air_business where is_deleted = 0
+    </select>
+
+</mapper>

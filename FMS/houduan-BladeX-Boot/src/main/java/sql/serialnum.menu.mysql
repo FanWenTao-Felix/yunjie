@@ -1,0 +1,10 @@
+INSERT INTO `blade_menu`(`id`, `parent_id`, `code`, `name`, `alias`, `path`, `source`, `sort`, `category`, `action`, `is_open`, `remark`, `is_deleted`)
+VALUES ('1165903960649773057', 0, 'serialnum', '', 'menu', '/dictionaries/serialnum', NULL, 1, 1, 0, 1, NULL, 0);
+INSERT INTO `blade_menu`(`id`, `parent_id`, `code`, `name`, `alias`, `path`, `source`, `sort`, `category`, `action`, `is_open`, `remark`, `is_deleted`)
+VALUES ('1165903960649773058', '1165903960649773057', 'serialnum_add', '新增', 'add', '/dictionaries/serialnum/add', 'plus', 1, 2, 1, 1, NULL, 0);
+INSERT INTO `blade_menu`(`id`, `parent_id`, `code`, `name`, `alias`, `path`, `source`, `sort`, `category`, `action`, `is_open`, `remark`, `is_deleted`)
+VALUES ('1165903960649773059', '1165903960649773057', 'serialnum_edit', '修改', 'edit', '/dictionaries/serialnum/edit', 'form', 2, 2, 2, 2, NULL, 0);
+INSERT INTO `blade_menu`(`id`, `parent_id`, `code`, `name`, `alias`, `path`, `source`, `sort`, `category`, `action`, `is_open`, `remark`, `is_deleted`)
+VALUES ('1165903960649773060', '1165903960649773057', 'serialnum_delete', '删除', 'delete', '/api/dictionaries/serialnum/remove', 'delete', 3, 2, 3, 3, NULL, 0);
+INSERT INTO `blade_menu`(`id`, `parent_id`, `code`, `name`, `alias`, `path`, `source`, `sort`, `category`, `action`, `is_open`, `remark`, `is_deleted`)
+VALUES ('1165903960649773061', '1165903960649773057', 'serialnum_view', '查看', 'view', '/dictionaries/serialnum/view', 'file-text', 4, 2, 2, 2, NULL, 0);

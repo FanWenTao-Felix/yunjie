@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.springblade.modules.dictionaries.mapper.AirFreightMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="airFreightResultMap" type="org.springblade.modules.dictionaries.entity.AirFreight">
+        <id column="id" property="id"/>
+        <result column="region" property="region"/>
+        <result column="origin_port" property="originPort"/>
+        <result column="destination_port" property="destinationPort"/>
+        <result column="least_value" property="leastValue"/>
+        <result column="normal_value" property="normalValue"/>
+        <result column="forty_five" property="fortyFive"/>
+        <result column="one_hundred" property="oneHundred"/>
+        <result column="three_hundred" property="threeHundred"/>
+        <result column="five_hundred" property="fiveHundred"/>
+        <result column="one_thousand" property="oneThousand"/>
+        <result column="routing" property="routing"/>
+        <result column="two_nd" property="twoNd"/>
+        <result column="three_th" property="threeTh"/>
+        <result column="aging" property="aging"/>
+        <result column="remark" property="remark"/>
+        <result column="freigth_info_id" property="freigthInfoId"/>
+    </resultMap>
+
+
+    <select id="selectAirFreightPage" resultMap="airFreightResultMap">
+        select * from fms_air_freight where is_deleted = 0
+    </select>
+    <select id="selectInfoId" resultType="java.lang.Long">
+        select * from fms_air_freight where freigth_info_id IN
+        <foreach collection="array" item="ids" index="index" open="(" close=")" separator=",">
+            #{ids}
+        </foreach>
+
+    </select>
+    <select id="getAirFreight" resultType="org.springblade.modules.dictionaries.entity.AirFreight">
+          select * from fms_air_freight where region=#{region} and origin_port=#{originPort}
+          and  destination_port=#{destinationPort}  and freigth_info_id=#{freigthInfoId}
+    </select>
+
+
+</mapper>

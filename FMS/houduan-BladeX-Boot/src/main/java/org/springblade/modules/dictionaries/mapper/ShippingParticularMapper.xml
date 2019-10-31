@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.springblade.modules.dictionaries.mapper.ShippingParticularMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="shippingParticularResultMap" type="org.springblade.modules.dictionaries.entity.ShippingParticular">
+        <id column="id" property="id"/>
+        <result column="origin_port" property="originPort"/>
+        <result column="destination_port" property="destinationPort"/>
+        <result column="stop_open" property="stopOpen"/>
+        <result column="boat_ride" property="boatRide"/>
+        <result column="transfer" property="transfer"/>
+        <result column="gp_twenty" property="gpTwenty"/>
+        <result column="gp_forty" property="gpForty"/>
+        <result column="hc_forty" property="hcForty"/>
+        <result column="hc_forty_five" property="hcFortyFive"/>
+        <result column="shipping_note" property="shippingNote"/>
+        <result column="period_validity" property="periodValidity"/>
+        <result column="line_id" property="lineId"/>
+    </resultMap>
+
+
+    <select id="selectShippingParticularPage" resultMap="shippingParticularResultMap">
+        select * from fms_shipping_particular where is_deleted = 0
+    </select>
+    <select id="selectInfoId" resultType="java.lang.Long">
+        select * from fms_shipping_particular   where line_id IN
+        <foreach collection="array" item="ids" index="index" open="(" close=")" separator=",">
+            #{ids}
+        </foreach>
+    </select>
+    <select id="selectShippingParticular"
+            resultType="org.springblade.modules.dictionaries.entity.ShippingParticular">
+            select * from fms_shipping_particular  where origin_port=#{originPort} and destination_port=#{destinationPort}
+            and line_id=#{lineId}
+    </select>
+
+</mapper>

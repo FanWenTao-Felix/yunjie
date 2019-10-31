@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.springblade.modules.dictionaries.mapper.BilltypeMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="billtypeResultMap" type="org.springblade.modules.dictionaries.entity.Billtype">
+        <id column="id" property="id"/>
+        <result column="billtype_info" property="billtypeInfo"/>
+        <result column="status" property="status"/>
+        <result column="billtype_bz" property="billtypeBz"/>
+    </resultMap>
+
+
+    <select id="selectBilltypePage" resultMap="billtypeResultMap">
+        select * from fms_billtype where is_deleted = 0
+    </select>
+
+</mapper>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.springblade.modules.ocean.mapper.SeaSpellMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="seaSpellResultMap" type="org.springblade.modules.ocean.entity.SeaSpell">
+        <result column="id" property="id"/>
+        <result column="tenant_id" property="tenantId"/>
+        <result column="create_user" property="createUser"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_user" property="updateUser"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="is_deleted" property="isDeleted"/>
+        <result column="status" property="status"/>
+        <result column="create_dept" property="createDept"/>
+        <result column="business_id" property="businessId"/>
+        <result column="internal_order_no" property="internalOrderNo"/>
+        <result column="port_loading" property="portLoading"/>
+        <result column="pol" property="pol"/>
+        <result column="pro_etd" property="proEtd"/>
+        <result column="ships_name" property="shipsName"/>
+        <result column="cfs" property="cfs"/>
+        <result column="cfs_closing_date" property="cfsClosingDate"/>
+        <result column="airport" property="airport"/>
+        <result column="departure_airport" property="departureAirport"/>
+        <result column="pod" property="pod"/>
+        <result column="eta" property="eta"/>
+        <result column="pod_cfs" property="podCfs"/>
+        <result column="arrival_dat" property="arrivalDat"/>
+        <result column="departure" property="departure"/>
+        <result column="joint_company" property="jointCompany"/>
+        <result column="shipping" property="shipping"/>
+        <result column="munual_folio" property="munualFolio"/>
+        <result column="house_bill" property="houseBill"/>
+        <result column="transportation_require" property="transportationRequire"/>
+        <result column="feedback" property="feedback"/>
+        <result column="shipowner" property="shipowner"/>
+    </resultMap>
+
+
+    <select id="selectSeaSpellPage" resultMap="seaSpellResultMap">
+        select * from fms_sea_spell where is_deleted = 0
+    </select>
+    <select id="getByBusinessId" resultType="org.springblade.modules.ocean.entity.SeaSpell">
+      select  * from  fms_sea_spell where business_id=#{businessId}
+    </select>
+
+</mapper>

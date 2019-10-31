@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.springblade.modules.dictionaries.mapper.AirFreightInfoMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="airFreightInfoResultMap" type="org.springblade.modules.dictionaries.entity.AirFreightInfo">
+        <id column="id" property="id"/>
+        <result column="number" property="number"/>
+        <result column="air_line" property="airLine"/>
+        <result column="origin_port" property="originPort"/>
+
+        <result column="flight_number" property="flightNumber"/>
+        <result column="type" property="type"/>
+        <result column="period" property="period"/>
+        <result column="capacity" property="capacity"/>
+
+        <result column="sundry_goods" property="sundryGoods"/>
+        <result column="remark" property="remark"/>
+        <result column="advantage" property="advantage"/>
+        <result column="state" property="state"/>
+        <result column="creation_time" property="creationTime"/>
+        <result column="turnover_time" property="turnoverTime"/>
+        <result column="currency" property="currency"/>
+    </resultMap>
+
+
+    <select id="selectAirFreightInfoPage" resultMap="airFreightInfoResultMap">
+        select * from fms_air_freight_info where is_deleted = 0
+    </select>
+    <select id="selectAirFreightInfo" resultType="org.springblade.modules.dictionaries.entity.AirFreightInfo">
+           select * from fms_air_freight_info where number=#{number} and  air_line=#{airLine} and  origin_port=#{originPort}
+    </select>
+
+    <select id="getInfo" resultType="org.springblade.modules.dictionaries.entity.AirFreightInfo">
+           select * from fms_air_freight_info where number=#{number} and  air_line=#{airLine} and  origin_port=#{originPort}
+           and flight_number=#{flightNumber}
+    </select>
+
+</mapper>

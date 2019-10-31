@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.springblade.modules.dictionaries.mapper.ShippingPortMapper">
+
+    <!-- 通用查询映射结1果 -->
+    <resultMap id="shippingPortResultMap" type="org.springblade.modules.dictionaries.entity.ShippingPort">
+        <id column="id" property="id"/>
+        <result column="country_name" property="countryName"/>
+        <result column="site" property="site"/>
+        <result column="site_type" property="siteType"/>
+        <result column="port_code" property="portCode"/>
+
+    </resultMap>
+
+
+    <select id="selectShippingPortPage" resultMap="shippingPortResultMap">
+        select * from fms_shipping_port where is_deleted = 0
+    </select>
+
+</mapper>

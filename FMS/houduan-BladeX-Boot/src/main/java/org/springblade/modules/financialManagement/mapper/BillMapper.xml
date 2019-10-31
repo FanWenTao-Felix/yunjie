@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.springblade.modules.financialManagement.mapper.BillMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="billResultMap" type="org.springblade.modules.financialManagement.entity.Bill">
+        <id column="id" property="id"/>
+        <result column="create_user" property="createUser"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_user" property="updateUser"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="is_deleted" property="isDeleted"/>
+        <result column="settlement_unit" property="settlementUnit"/>
+        <result column="gained_date" property="gainedDate"/>
+        <result column="currency" property="currency"/>
+        <result column="amount" property="amount"/>
+        <result column="voucher_no" property="voucherNo"/>
+        <result column="serial_no" property="serialNo"/>
+        <result column="settlement_type" property="settlementType"/>
+        <result column="bank_account_id" property="bankAccountId"/>
+        <result column="bank_account" property="bankAccount"/>
+        <result column="type" property="type"/>
+        <result column="invoice_status" property="invoiceStatus"/>
+        <result column="invoice_type" property="invoiceType"/>
+        <result column="invoice_no" property="invoiceNo"/>
+        <result column="invoice_date" property="invoiceDate"/>
+        <result column="remark" property="remark"/>
+        <result column="is_confirm" property="isConfirm"/>
+        <result column="invoice_name" property="invoiceName"/>
+        <result column="invoice_currency" property="invoiceCurrency"/>
+        <result column="taxpayer_dentification" property="taxpayerDentification"/>
+        <result column="invoice_phone_address" property="invoicePhoneAddress"/>
+        <result column="invoice_bank" property="invoiceBank"/>
+        <result column="invoice_account" property="invoiceAccount"/>
+        <result column="bill_status" property="billStatus"/>
+        <result column="finished_amount" property="finishedAmount"/>
+        <result column="finished_currency" property="finishedCurrency" />
+    </resultMap>
+
+
+    <select id="selectBillPage" resultMap="billResultMap">
+        select * from fms_bill where is_deleted = 0
+    </select>
+
+</mapper>

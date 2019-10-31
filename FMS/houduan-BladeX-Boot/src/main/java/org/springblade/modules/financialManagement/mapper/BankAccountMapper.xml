@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.springblade.modules.financialManagement.mapper.BankAccountMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="bankAccountResultMap" type="org.springblade.modules.financialManagement.entity.BankAccount">
+        <id column="id" property="id"/>
+        <result column="create_user" property="createUser"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_user" property="updateUser"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="is_deleted" property="isDeleted"/>
+        <result column="status" property="status"/>
+        <result column="account_number" property="accountNumber"/>
+        <result column="account_name" property="accountName"/>
+        <result column="bank_name" property="bankName"/>
+        <result column="currency" property="currency"/>
+        <result column="enterprise_signature" property="enterpriseSignature"/>
+        <result column="commercial_registration_no" property="commercialRegistrationNo"/>
+        <result column="bank_phone" property="bankPhone"/>
+        <result column="tax_registration_no" property="taxRegistrationNo"/>
+        <result column="financial_phone" property="financialPhone"/>
+        <result column="address" property="address"/>
+        <result column="swift_code" property="swiftCode"/>
+        <result column="disabled" property="disabled"/>
+    </resultMap>
+
+
+    <select id="selectBankAccountPage" resultMap="bankAccountResultMap">
+        select * from fms_bank_account where is_deleted = 0
+    </select>
+
+</mapper>
